@@ -27,6 +27,11 @@ public class Candidate
 		
 	}
 	
+	public Candidate(String name)
+	{
+		this.name = name;
+	}
+	
 	public Candidate(String name, int votes)
 	{
 		this.name = name;
@@ -36,6 +41,11 @@ public class Candidate
 	public String returnCandidateDetails()
 	{
 		return name + ": " + votes;
+	}
+	
+	public void addVotes(int votesToAdd)
+	{
+		this.votes += votesToAdd;
 	}
 
 	public int getId()
