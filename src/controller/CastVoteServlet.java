@@ -39,12 +39,22 @@ public class CastVoteServlet extends HttpServlet
 		
 		try
 		{
-			Candidate chosenCandidate = dao.searchForCandidateById(Integer.parseInt(id));
-			chosenCandidate.addVotes(VOTES_PER_PERSON);
-			dao.updateCandidate(chosenCandidate);
+			if(id.equals("custom"))
+			{
+				String writeInName= request.getParameter("custom");
+				Candidate writeInCandidate = new Candidate(writeInName, VOTES_PER_PERSON);
+				dao.insertCandidate(writeInCandidate);
+			}
+			else
+			{
+				Candidate chosenCandidate = dao.searchForCandidateById(Integer.parseInt(id));
+				chosenCandidate.addVotes(VOTES_PER_PERSON);
+				dao.updateCandidate(chosenCandidate);
+			}
 		}
 		catch(Exception ex)
 		{
+			request.setAttribute("error", id);//ex.getMessage());
 			path = "/error.jsp";
 		}
 		
