@@ -7,6 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Candidate;
+
 /**
  * Servlet implementation class CastVoteServlet
  */
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CastVoteServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
+	private static final int VOTES_PER_PERSON = 1;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -28,8 +31,24 @@ public class CastVoteServlet extends HttpServlet
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
+		CandidateHelper dao = new CandidateHelper();
+
+		String path = "/success.jsp";
 		
+		String id = request.getParameter("id");
 		
+		try
+		{
+			Candidate chosenCandidate = dao.searchForCandidateById(Integer.parseInt(id));
+			chosenCandidate.addVotes(VOTES_PER_PERSON);
+			dao.updateCandidate(chosenCandidate);
+		}
+		catch(Exception ex)
+		{
+			path = "/error.jsp";
+		}
+		
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 }
