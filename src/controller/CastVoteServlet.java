@@ -54,7 +54,7 @@ public class CastVoteServlet extends HttpServlet
 		}
 		catch(Exception ex)
 		{
-			request.setAttribute("error", id);//ex.getMessage());
+			request.setAttribute("error", ex.getMessage());
 			path = "/error.jsp";
 		}
 		

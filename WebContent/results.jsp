@@ -6,23 +6,23 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" type="text/css" href="style.css">
-<title>Administration Console</title>
+<title>Results</title>
 </head>
 <body>
-	<h1>Administration Console</h1>
-	<form method="post" action="navigationServlet">
+	<h1>Voting Booth Results</h1>
+	<form method="post" action="castVoteServlet">
 		<table>
-			<c:forEach items="${requestScope.allCandidates}" var="currentcandidate">
+			<c:forEach items="${requestScope.sortedCandidates}" var="currentcandidate">
 				<tr>
 					<td><input type="radio" name="id" value="${currentcandidate.id}"></td>
 					<td>${currentcandidate.name}</td>
+					<td>${currentcandidate.votes}</td>
 				</tr>
 			</c:forEach>
 		</table>
-		<input type="submit" value="Delete" name="doThis">
-		<input type="submit" value="Results" name="doThis">
 		<br/><br/><br/>
-		<a href="/index.html">Return Home</a>
+		<a href="index.html">Return Home</a>
 	</form>
+
 </body>
 </html>
