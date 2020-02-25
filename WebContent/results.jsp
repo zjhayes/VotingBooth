@@ -14,7 +14,6 @@
 		<table>
 			<c:forEach items="${requestScope.sortedCandidates}" var="currentcandidate">
 				<tr>
-					<td><input type="radio" name="id" value="${currentcandidate.id}"></td>
 					<td>${currentcandidate.name}</td>
 					<td>${currentcandidate.votes}</td>
 				</tr>

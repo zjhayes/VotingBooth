@@ -21,6 +21,7 @@
 		</table>
 		<input type="submit" value="Delete" name="doThis">
 		<input type="submit" value="Results" name="doThis">
+		<input type="submit" value="Voter Registration" name="doThis">
 		<br/><br/><br/>
 		<a href="/index.html">Return Home</a>
 	</form>

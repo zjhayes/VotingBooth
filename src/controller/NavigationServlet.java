@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Candidate;
+import model.Voter;
 
 /**
  * Servlet implementation class NavigationServlet
@@ -60,6 +61,19 @@ public class NavigationServlet extends HttpServlet
 			Collections.reverse(candidates);
 			request.setAttribute("sortedCandidates", candidates);
 			path = "/results.jsp";
+		}
+		else if(act.equals("Voter Registration"))
+		{
+			VoterHelper vh = new VoterHelper();
+			List<Voter> voters = vh.showAllVoters();
+			request.setAttribute("allVoters", voters);
+			
+			if(voters.isEmpty())
+			{
+				request.setAttribute("allVoters", " ");
+			}
+			 
+			 path = "/records.jsp";
 		}
 		
 		request.setAttribute("allCandidates", dao.showAllCandidates());
