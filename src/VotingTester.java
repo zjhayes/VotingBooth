@@ -1,9 +1,11 @@
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import controller.AffiliationHelper;
 import controller.VoterHelper;
 import model.Affiliation;
+import model.Candidate;
 import model.Voter;
 
 public class VotingTester
@@ -11,15 +13,23 @@ public class VotingTester
 	public static void main(String[] args)
 	{
 		
-		Affiliation reps = new Affiliation("Republican");
+		Affiliation indie = new Affiliation("Independent");
+		
+		Candidate brian = new Candidate("Brian Carroll");
+		Candidate jerome = new Candidate("Jerome Segal");
+		
+		List<Candidate> indieCandidates = new ArrayList<Candidate>();
+		indieCandidates.add(brian);
+		indieCandidates.add(jerome);
+		indie.setListOfCandidates(indieCandidates);
 		AffiliationHelper ah = new AffiliationHelper();
-		ah.insertAffiliation(reps);
+		ah.insertAffiliation(indie);
 		
 		
-		Voter john = new Voter("John", "Plumbington", LocalDate.now(), reps);
+		Voter susan = new Voter("Susan", "Crowley", LocalDate.now(), indie);
 		VoterHelper vh = new VoterHelper();
 		
-		vh.insertVoter(john);
+		vh.insertVoter(susan);
 		
 		List<Voter> allVoters = vh.showAllVoters();
 		

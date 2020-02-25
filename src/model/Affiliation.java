@@ -27,7 +27,7 @@ public class Affiliation
 	@OneToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
 	@JoinTable
 	(
-		name="CANDIDATE_AFFILIATIONS",
+		name="candidate_affiliations",
 		joinColumns = {@JoinColumn(name="AFFILIATION_ID", referencedColumnName="AFFILIATION_ID")},
 		inverseJoinColumns = {@JoinColumn(name="CANDIDATE_ID", referencedColumnName="ID", unique=true)}
 	)
@@ -76,6 +76,14 @@ public class Affiliation
 	{
 		return "Affiliation [id=" + id + ", affiliationName=" + affiliationName + "]";
 	}
-	
-	
+
+	public List<Candidate> getListOfCandidates()
+	{
+		return listOfCandidates;
+	}
+
+	public void setListOfCandidates(List<Candidate> listOfCandidates)
+	{
+		this.listOfCandidates = listOfCandidates;
+	}
 }
