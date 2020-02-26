@@ -35,10 +35,15 @@ public class NavigationServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		CandidateHelper dao = new CandidateHelper();
+		VoterHelper vh = new VoterHelper();
 		String act = request.getParameter("doThis");
-		String path = "/results.jsp";
+		String path = "/signin.jsp";
 		
-		if(act.equals("Delete"))
+		if(act.equals("Admin Console"))
+		{
+			path = "/admin.jsp";
+		}
+		else if(act.equals("Delete"))
 		{
 			path = "/admin.jsp";
 			
@@ -64,7 +69,6 @@ public class NavigationServlet extends HttpServlet
 		}
 		else if(act.equals("Voter Registration"))
 		{
-			VoterHelper vh = new VoterHelper();
 			List<Voter> voters = vh.showAllVoters();
 			Collections.sort(voters);
 			request.setAttribute("allVoters", voters);
@@ -77,7 +81,12 @@ public class NavigationServlet extends HttpServlet
 			 path = "/records.jsp";
 		}
 		
-		request.setAttribute("allCandidates", dao.showAllCandidates());
+		if(path.equals("/signin.jsp"))
+		{
+			List<Voter> voters = vh.showAllVoters();
+			Collections.sort(voters);
+			request.setAttribute("allVoters", voters);
+		}
 		
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}

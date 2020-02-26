@@ -16,10 +16,10 @@
 		Political Affiliation:
 		<select name="affiliation">
 			<c:forEach items="${requestScope.allAffiliations}" var="currentparty">
-				<option value="${currentparty.id}">{$currentparty.name}</option>
+				<option value="${currentparty.id}">${currentparty.name}</option>
 			</c:forEach>
 		</select>
-		<input type="submit" value="Register" name="doThis">
+		<input type="submit" value="Register">
 	</form>
 	<a href="index.html">Return To Main Menu</a>
 </body>

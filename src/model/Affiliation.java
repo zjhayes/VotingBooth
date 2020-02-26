@@ -61,12 +61,12 @@ public class Affiliation
 		this.id = id;
 	}
 
-	public String getAffiliationName()
+	public String getName()
 	{
 		return name;
 	}
 
-	public void setAffiliationName(String affiliationName)
+	public void setName(String affiliationName)
 	{
 		this.name = affiliationName;
 	}

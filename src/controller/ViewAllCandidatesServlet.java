@@ -29,13 +29,7 @@ public class ViewAllCandidatesServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		CandidateHelper dao = new CandidateHelper();
-		String act = request.getParameter("doThis");
 		String path = "/vote.jsp";
-		
-		if(act.equals("Admin Console"))
-		{
-			path = "/admin.jsp";
-		}
 		
 		request.setAttribute("allCandidates", dao.showAllCandidates());
 		

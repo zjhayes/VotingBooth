@@ -2,6 +2,8 @@ package controller;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.Collections;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,7 +49,12 @@ public class RegisterVoterServlet extends HttpServlet
 		
 		vh.insertVoter(newVoter);
 		
-		getServletContext().getRequestDispatcher("/viewAllCandidatesServlet");
+		// Return to Sign-in
+		List<Voter> voters = vh.showAllVoters();
+		Collections.sort(voters);
+		request.setAttribute("allVoters", voters);
+		
+		getServletContext().getRequestDispatcher("/signin.jsp").forward(request, response);;
 	}
 
 	/**

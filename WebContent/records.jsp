@@ -20,7 +20,7 @@
 				<tr>
 					<td><input type="radio" name="id" value="${currentvoter.id}"></td>
 					<td>${currentvoter.lastName}, ${currentvoter.firstName}</td>
-					<td>${currentvoter.affiliation.affiliationName}</td>
+					<td>${currentvoter.affiliation.name}</td>
 					<td>${currentvoter.registrationDate}</td>
 				</tr>
 			</c:forEach>
