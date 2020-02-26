@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="voters")
-public class Voter
+public class Voter implements Comparable<Voter>
 {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -113,6 +113,12 @@ public class Voter
 	{
 		return "Voter [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", registrationDate="
 				+ registrationDate + ", affiliation=" + affiliation + "]";
+	}
+
+	@Override
+	public int compareTo(Voter compareVoter)
+	{
+	    return this.getLastName().compareTo(compareVoter.getLastName());
 	}
 	
 }

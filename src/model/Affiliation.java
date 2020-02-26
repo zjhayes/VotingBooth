@@ -23,7 +23,7 @@ public class Affiliation
 	@Column(name="AFFILIATION_ID")
 	private int id;
 	@Column(name="AFFILIATION_NAME")
-	private String affiliationName;
+	private String name;
 	@OneToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
 	@JoinTable
 	(
@@ -42,13 +42,13 @@ public class Affiliation
 	{
 		super();
 		this.id = id;
-		this.affiliationName = affiliationName;
+		this.name = affiliationName;
 	}
 	
 	public Affiliation(String affiliationName)
 	{
 		super();
-		this.affiliationName = affiliationName;
+		this.name = affiliationName;
 	}
 
 	public int getId()
@@ -63,18 +63,18 @@ public class Affiliation
 
 	public String getAffiliationName()
 	{
-		return affiliationName;
+		return name;
 	}
 
 	public void setAffiliationName(String affiliationName)
 	{
-		this.affiliationName = affiliationName;
+		this.name = affiliationName;
 	}
 
 	@Override
 	public String toString()
 	{
-		return "Affiliation [id=" + id + ", affiliationName=" + affiliationName + "]";
+		return "Affiliation [id=" + id + ", affiliationName=" + name + "]";
 	}
 
 	public List<Candidate> getListOfCandidates()

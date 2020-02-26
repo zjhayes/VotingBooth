@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import model.Affiliation;
+import model.Candidate;
 
 public class AffiliationHelper
 {
@@ -26,5 +27,14 @@ public class AffiliationHelper
 		EntityManager em = emfactory.createEntityManager();
 		List<Affiliation> allAffiliations = em.createQuery("SELECT a FROM Affiliation a").getResultList();
 		return allAffiliations;
+	}
+	
+	public Affiliation searchForAffiliationById(int id)
+	{
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		Affiliation found = em.find(Affiliation.class, id);
+		em.close();
+		return found;
 	}
 }

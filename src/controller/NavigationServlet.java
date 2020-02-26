@@ -17,7 +17,7 @@ import model.Voter;
  * Servlet implementation class NavigationServlet
  */
 @WebServlet("/navigationServlet")
-public class NavigationServlet extends HttpServlet 
+public class NavigationServlet extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
        
@@ -66,6 +66,7 @@ public class NavigationServlet extends HttpServlet
 		{
 			VoterHelper vh = new VoterHelper();
 			List<Voter> voters = vh.showAllVoters();
+			Collections.sort(voters);
 			request.setAttribute("allVoters", voters);
 			
 			if(voters.isEmpty())
