@@ -52,7 +52,6 @@ public class CastVoteServlet extends HttpServlet
 				Candidate writeInCandidate = new Candidate(writeInName, VOTES_PER_PERSON);
 				affiliation.addAffiliatedCandidate(writeInCandidate);
 				ah.updateAffiliation(affiliation);
-				dao.insertCandidate(writeInCandidate);
 			}
 			else
 			{
