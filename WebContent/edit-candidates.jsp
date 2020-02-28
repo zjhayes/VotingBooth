@@ -12,7 +12,7 @@
 	<h1>Edit Candidates</h1>
 	<form method="post" action="editCandidateServlet">
 		<table>
-			<c:forEach items="${requestScope.allCandidates}" var="currentcandidate">
+			<c:forEach items="${requestScope.affiliatedCandidates}" var="currentcandidate">
 				<tr>
 					<td><input type="radio" name="id" value="${currentcandidate.id}"></td>
 					<td>${currentcandidate.name}</td>
@@ -22,7 +22,7 @@
 		<input type="submit" value="Delete" name="doThis">
 		<input type="submit" value="Edit" name="doThis">
 		<br/><br/><br/>
-		<a href="admin.html">Return to Admin Console</a>
+		<a href="admin.jsp">Return to Admin Console</a>
 	</form>
 </body>
 </html>

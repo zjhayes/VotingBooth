@@ -7,7 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import model.Affiliation;
 import model.Candidate;
+import model.Voter;
 
 /**
  * Servlet implementation class CastVoteServlet
@@ -36,13 +38,20 @@ public class CastVoteServlet extends HttpServlet
 		String path = "/success.jsp";
 		
 		String id = request.getParameter("id");
+		String voterId = request.getParameter("voterId");
 		
 		try
 		{
 			if(id.equals("custom"))
 			{
+				VoterHelper vh = new VoterHelper();
+				AffiliationHelper ah = new AffiliationHelper();
+				Voter voter = vh.searchForVoterById(Integer.parseInt(voterId));
+				Affiliation affiliation = voter.getAffiliation();
 				String writeInName= request.getParameter("custom");
 				Candidate writeInCandidate = new Candidate(writeInName, VOTES_PER_PERSON);
+				affiliation.addAffiliatedCandidate(writeInCandidate);
+				ah.updateAffiliation(affiliation);
 				dao.insertCandidate(writeInCandidate);
 			}
 			else

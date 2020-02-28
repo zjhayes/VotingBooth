@@ -29,7 +29,10 @@
 		<input type="submit" value="delete" name="doThisToVoter">
 		<input type="submit" value="add" name="doThisToVoter">
 	</form>
-	<a href="addAffiliationServlet">Create a New Affiliation</a>
-	<a href="index.html">Return Home</a>
+	<form method="post" action="addAffiliationServlet">
+		<input type="submit" value="Create a New Affiliation" name="doThis">
+	</form>
+	<br><br>
+	<a href="admin.jsp">Return to Admin Console</a>
 </body>
 </html>

@@ -20,7 +20,7 @@
 			</c:forEach>
 		</table>
 		<br/><br/><br/>
-		<a href="index.html">Return Home</a>
+		<a href="admin.jsp">Return Home</a>
 	</form>
 
 </body>

@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>Sign-in</h1>
-	<form action="viewAllCandidatesServlet" method="post">
+	<form action="viewAffiliatedCandidatesServlet" method="post">
 		Select Your Name:
 		<select name="voter">
 			<c:forEach items="${requestScope.allVoters}" var="currentvoter">

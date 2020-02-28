@@ -10,7 +10,7 @@
 </head>
 <body>
 	<h1>Administration Console</h1>
-	<form method="post" action="navigationServlet">
+	<form method="post" action="viewAffiliatedCandidatesServlet">
 		<input type="submit" value="Edit Candidates" name="doThis">
 	</form>
 	<form method="post" action="navigationServlet">

@@ -11,7 +11,7 @@
 <body>
 	<form method="post" action="castVoteServlet">
 		<table>
-			<c:forEach items="${requestScope.allCandidates}" var="currentcandidate">
+			<c:forEach items="${requestScope.affiliatedCandidates}" var="currentcandidate">
 				<tr>
 					<td><input type="radio" name="id" value="${currentcandidate.id}"></td>
 					<td>${currentcandidate.name}</td>
@@ -22,6 +22,7 @@
 				<td>Write-in: <input type="text" name="custom"></td>
 			</tr>
 		</table>
+		<input type="hidden" name="voterId" value="${requestScope.voterid}">
 		<input type="submit" value="Vote">
 	</form>
 </body>

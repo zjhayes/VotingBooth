@@ -37,4 +37,15 @@ public class AffiliationHelper
 		em.close();
 		return found;
 	}
+	
+	public void updateAffiliation(Affiliation toEdit)
+	{
+		EntityManager em = emfactory.createEntityManager();
+		em.getTransaction().begin();
+		
+		em.merge(toEdit);
+		em.getTransaction().commit();
+		em.close();
+	}
+	
 }

@@ -24,7 +24,7 @@ public class Affiliation
 	private int id;
 	@Column(name="AFFILIATION_NAME")
 	private String name;
-	@OneToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
 	@JoinTable
 	(
 		name="candidate_affiliations",
@@ -85,5 +85,10 @@ public class Affiliation
 	public void setListOfCandidates(List<Candidate> listOfCandidates)
 	{
 		this.listOfCandidates = listOfCandidates;
+	}
+	
+	public void addAffiliatedCandidate(Candidate newCandidate)
+	{
+		this.listOfCandidates.add(newCandidate);
 	}
 }

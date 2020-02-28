@@ -27,7 +27,7 @@ public class Voter implements Comparable<Voter>
 	private String lastName;
 	@Column(name="REGISTRATION_DATE")
 	private LocalDate registrationDate;
-	@ManyToOne(cascade=CascadeType.PERSIST)
+	@ManyToOne(cascade=CascadeType.MERGE)
 	@JoinColumn(name="AFFILIATION_ID")
 	private Affiliation affiliation;
 	

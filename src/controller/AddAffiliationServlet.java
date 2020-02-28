@@ -29,15 +29,26 @@ public class AddAffiliationServlet extends HttpServlet
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
 		AffiliationHelper dao = new AffiliationHelper();
+		String path = "/registration.jsp";
 		
 		request.setAttribute("allAffiliations", dao.showAllAffiliations());
+		
+		if(request.getParameterMap().containsKey("doThis"))
+		{
+			String act = request.getParameter("doThis");
+			if(act.equals("Create a New Affiliation"))
+			{
+				path = "/new-affiliation.jsp";
+			}
+		}
 		
 		if(dao.showAllAffiliations().isEmpty())
 		{
 			request.setAttribute("allAffiliations", " ");
 		}
 		
-		getServletContext().getRequestDispatcher("/new-affiliation.jsp").forward(request, response);
+		
+		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 	/**
