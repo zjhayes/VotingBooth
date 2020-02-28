@@ -10,7 +10,15 @@
 <body>
 	<form action="createAffiliationServlet" method="post">
 		Affiliation Name: <input type="text" name="affiliationName"><br/>
-		
+		Associate Candidates:
+		<select name="allCandidatesToAdd" multiple size="6">
+		<c:forEach items="${requestScope.allCandidates}" var="currentcandidate">
+			<option value="${currentcandidate.id}">${currentcandidate.name}</option>
+		</c:forEach>
+		</select>
+		<br/>
+		<input type="submit" value="Create Affiliation">
 	</form>
+	<a href="admin.jsp">Return to Admin Console</a>
 </body>
 </html>

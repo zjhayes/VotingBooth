@@ -11,19 +11,13 @@
 <body>
 	<h1>Administration Console</h1>
 	<form method="post" action="navigationServlet">
-		<table>
-			<c:forEach items="${requestScope.allCandidates}" var="currentcandidate">
-				<tr>
-					<td><input type="radio" name="id" value="${currentcandidate.id}"></td>
-					<td>${currentcandidate.name}</td>
-				</tr>
-			</c:forEach>
-		</table>
-		<input type="submit" value="Delete" name="doThis">
+		<input type="submit" value="Edit Candidates" name="doThis">
+	</form>
+	<form method="post" action="navigationServlet">
 		<input type="submit" value="Results" name="doThis">
 		<input type="submit" value="Voter Registration" name="doThis">
 		<br/><br/><br/>
-		<a href="/index.html">Return Home</a>
+		<a href="index.html">Return to Main Menu</a>
 	</form>
 </body>
 </html>

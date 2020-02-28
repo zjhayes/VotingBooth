@@ -22,7 +22,8 @@
 	</form>
 	<form action="addAffiliationServlet">
 		<h3>Not Registered?</h3>
-		<input type="submit" value="Register To Vote">
+		<input type="submit" value="Register To Vote" name="doThis">
 	</form>
+	<a href="index.html">Return to Main Menu</a>
 </body>
 </html>

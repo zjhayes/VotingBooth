@@ -37,7 +37,7 @@ public class AddAffiliationServlet extends HttpServlet
 			request.setAttribute("allAffiliations", " ");
 		}
 		
-		getServletContext().getRequestDispatcher("/registration.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/new-affiliation.jsp").forward(request, response);
 	}
 
 	/**

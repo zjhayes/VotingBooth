@@ -10,15 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ViewAllCandidatesServlet
  */
-@WebServlet("/viewAllCandidatesServlet")
-public class ViewAllCandidatesServlet extends HttpServlet 
+@WebServlet("/viewAffiliatedCandidatesServlet")
+public class ViewAffiliatedCandidatesServlet extends HttpServlet 
 {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ViewAllCandidatesServlet() 
+    public ViewAffiliatedCandidatesServlet() 
     {
         super();
     }
@@ -28,7 +28,7 @@ public class ViewAllCandidatesServlet extends HttpServlet
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		CandidateHelper dao = new CandidateHelper();
+		AffiliationHelper dao = new AffiliationHelper();
 		String act = request.getParameter("doThis");
 		String path = "/vote.jsp";
 		
@@ -37,7 +37,7 @@ public class ViewAllCandidatesServlet extends HttpServlet
 			path = "/edit-candidates.jsp";
 		}
 		
-		request.setAttribute("allCandidates", dao.showAllCandidates());
+		request.setAttribute("allAffiliations", dao.showAllCandidates());
 		
 		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
